@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ToggleEditContactButton from './ToggleEditContactButton';
 
 class ContactList extends Component {
 
@@ -36,7 +37,11 @@ class ContactList extends Component {
                                     data-contact-id={ contact.id }>
                                     remove
                                 </button>
-                                <button>edit</button>
+
+                                <ToggleEditContactButton
+                                    contact={ contact }
+                                    updateContact={ this.props.updateContact }
+                                />
 
                             </li>
                         )
