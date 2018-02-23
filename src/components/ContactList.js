@@ -10,10 +10,20 @@ class ContactList extends Component {
                 <strong>Contact List:</strong>
                 <ul>
                     { contacts.map(contact => {
+
+                        let contactDisplay = contact.categories.replace(' ','').split(',');
+
+                        for (let i=0; i<contactDisplay.length; i++){
+                            contactDisplay[i]='['+contactDisplay[i]+']';
+                        }
+
+                        contactDisplay = contactDisplay.join(', ');
+
                         return (
                             <li key={ contact.id }>
                                 <strong>{ contact.name }</strong><br/>
-                                { contact.phone }, { contact.email }
+                                { contact.phone }, { contact.email }<br/>
+                                { contactDisplay }
                             </li>
                         )
                     })}
