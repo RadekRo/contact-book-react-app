@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import AddContactForm from "./AddContactForm";
 
 class ContactList extends Component {
     render() {
@@ -7,6 +8,7 @@ class ContactList extends Component {
 
         return (
             <React.Fragment>
+                <AddContactForm/>
                 <strong>Contact List:</strong>
                 <ul>
                     { contacts.map(contact => {
