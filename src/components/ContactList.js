@@ -8,7 +8,8 @@ class ContactList extends Component {
 
         return (
             <React.Fragment>
-                <AddContactForm/>
+                <strong>Contact Form:</strong>
+                <AddContactForm/><br/>
                 <strong>Contact List:</strong>
                 <ul>
                     { contacts.map(contact => {
