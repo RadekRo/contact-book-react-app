@@ -23,7 +23,11 @@ class ContactList extends Component {
                             <li key={ contact.id }>
                                 <strong>{ contact.name }</strong><br/>
                                 { contact.phone }, { contact.email }<br/>
-                                { contactDisplay }
+                                { contactDisplay }<br/>
+
+                                <button>remove</button>
+                                <button>edit</button>
+
                             </li>
                         )
                     })}
