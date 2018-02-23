@@ -1,32 +1,63 @@
 import React, { Component } from 'react';
 
+const initialState = {
+    contactName: '',
+    contactPhone: '',
+    contactEmail: '',
+    contactCategory: ''
+};
+
 class AddContactForm extends Component {
+
+    state = initialState;
+
+    handleSubmit = event => {
+        event.preventDefault();
+        this.props.addContact(this.state);
+        this.setState(initialState);
+    };
+
+    handleChange = ({ target: { name, value } }) => {
+        this.setState({
+            [name]: value
+        })
+    };
+
     render() {
 
         const inputSize = 30;
-
+        const { contactName, contactPhone, contactEmail, contactCategory } = this.state;
         return (
             <React.Fragment>
-                <form>
+                <strong>Contact Form:</strong>
+                <form onSubmit={ this.handleSubmit }>
                     <input
-                        name='name'
+                        name='contactName'
                         size={ inputSize }
                         placeholder='Enter name'
+                        value={ contactName }
+                        onChange = { this.handleChange }
                     /><br/>
                     <input
-                        name='phone'
+                        name='contactPhone'
                         size={ inputSize }
                         placeholder='Enter phone number'
+                        value = { contactPhone }
+                        onChange = { this.handleChange }
                     /><br/>
                     <input
-                        name='email'
+                        name='contactEmail'
                         size={ inputSize }
                         placeholder='Enter email'
+                        value = { contactEmail }
+                        onChange = { this.handleChange }
                     /><br/>
                     <input
-                        name='category'
+                        name='contactCategory'
                         size={ inputSize }
-                        placeholder='Enter category (sep. by brackets)'
+                        placeholder='Enter category (sep. by coma)'
+                        value = { contactCategory }
+                        onChange = { this.handleChange }
                     /><br/>
                     <button>Add contact</button>
                 </form>

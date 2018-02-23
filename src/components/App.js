@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/style.css';
 
 import ContactList from './ContactList';
+import AddContactForm from "./AddContactForm";
 
 class App extends Component {
 
@@ -31,9 +32,23 @@ class App extends Component {
         ]
     };
 
+    addContact = ({ contactName, contactPhone, contactEmail, contactCategory }) => {
+        this.setState({
+            contacts: this.state.contacts.concat({
+                id: Date.now().toString(32),
+                name: contactName,
+                phone: contactPhone,
+                email: contactEmail,
+                categories: contactCategory
+            })
+        })
+    }
+
     render() {
         return (
             <React.Fragment>
+                <AddContactForm addContact={ this.addContact } />
+                <br/>
                 <ContactList
                     contacts={ this.state.contacts }
                 />
