@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import ContactList from './ContactList';
+
 class App extends Component {
 
     state = {
@@ -29,6 +31,7 @@ class App extends Component {
         return (
             <React.Fragment>
                 App file (main)
+                <ContactList/>
             </React.Fragment>
         );
     }
