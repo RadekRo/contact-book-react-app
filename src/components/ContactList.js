@@ -18,7 +18,7 @@ class ContactList extends Component {
                 <ul>
                     { contacts.map(contact => {
 
-                        let contactDisplay = contact.categories.replace(' ','').split(',');
+                        let contactDisplay = contact.categories.replace(/\s/g,'').split(',');
 
                         for (let i=0; i<contactDisplay.length; i++){
                             contactDisplay[i]='['+contactDisplay[i]+']';
