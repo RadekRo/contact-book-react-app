@@ -12,7 +12,8 @@ class ContactList extends Component {
                     { contacts.map(contact => {
                         return (
                             <li key={ contact.id }>
-                                { contact.name }
+                                <strong>{ contact.name }</strong><br/>
+                                { contact.phone }, { contact.email }
                             </li>
                         )
                     })}
