@@ -7,18 +7,21 @@ class App extends Component {
     state = {
         contacts: [
             {
+                id: '1',
                 name: 'Ann Arrante',
                 phone: '234 324 345',
                 email: 'anna@aol.com',
                 categories: 'work, family'
             },
             {
+                id: '2',
                 name: 'Monica Pascale',
                 phone: '454 324 345',
                 email: 'monicap@gmail.com',
                 categories: 'family'
             },
             {
+                id: '3',
                 name: 'Jessica Hudson',
                 phone: '454 333 345',
                 email: 'jessica333@gmail.com',
@@ -31,7 +34,9 @@ class App extends Component {
         return (
             <React.Fragment>
                 App file (main)
-                <ContactList/>
+                <ContactList
+                    contacts={ this.state.contacts }
+                />
             </React.Fragment>
         );
     }
