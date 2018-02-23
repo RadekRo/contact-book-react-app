@@ -2,11 +2,24 @@ import React, {Component} from 'react';
 
 class ContactList extends Component {
     render() {
+
+        const { contacts } = this.props;
+
         return (
             <React.Fragment>
-                <br/>Contact List component
+                <strong>Contact List:</strong>
+                <ul>
+                    { contacts.map(contact => {
+                        return (
+                            <li key={ contact.id }>
+                                { contact.name }
+                            </li>
+                        )
+                    })}
+                </ul>
             </React.Fragment>
         );
+
     }
 }
 

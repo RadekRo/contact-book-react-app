@@ -33,7 +33,6 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                App file (main)
                 <ContactList
                     contacts={ this.state.contacts }
                 />
