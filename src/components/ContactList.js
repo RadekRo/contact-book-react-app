@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class ContactList extends Component {
+
+    handleRemoveClick = event => {
+        const contactId = event.target.dataset.contactId;
+        this.props.removeContact(contactId)
+    };
+
     render() {
 
         const { contacts } = this.props;
@@ -25,7 +31,11 @@ class ContactList extends Component {
                                 { contact.phone }, { contact.email }<br/>
                                 { contactDisplay }<br/>
 
-                                <button>remove</button>
+                                <button
+                                    onClick={ this.handleRemoveClick }
+                                    data-contact-id={ contact.id }>
+                                    remove
+                                </button>
                                 <button>edit</button>
 
                             </li>

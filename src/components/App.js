@@ -42,6 +42,12 @@ class App extends Component {
                 categories: contactCategory
             })
         })
+    };
+
+    removeContact = contactId => {
+        this.setState({
+            contacts: this.state.contacts.filter(contact => contact.id !== contactId)
+        })
     }
 
     render() {
@@ -51,6 +57,7 @@ class App extends Component {
                 <br/>
                 <ContactList
                     contacts={ this.state.contacts }
+                    removeContact={ this.removeContact }
                 />
             </React.Fragment>
         );
