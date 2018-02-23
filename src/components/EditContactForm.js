@@ -9,22 +9,45 @@ class EditContactForm extends Component {
         contactCategory: this.props.categories
     };
 
+    handleChange = ({ target: { name, value } }) => {
+        console.log('dupa');
+        this.setState({
+            [name]: value
+        })
+    };
+
+    handleSubmit = event => {
+        event.preventDefault();
+
+        this.props.updateContact(this.props.contactId, {
+            ...this.state,
+            name: this.state.contactName,
+            phone: this.state.contactPhone,
+            email: this.state.contactEmail,
+            categories: this.state.contactCategory
+        })
+    };
+
+    renderInput(fieldName) {
+        return (
+            <input
+                name={ fieldName }
+                value={ this.state[fieldName] }
+                onChange={ this.handleChange }
+            />
+        )
+    }
+
     render() {
         return (
             <React.Fragment>
-                <form>
-                    <input
+                <form onSubmit={ this.handleSubmit }>
 
-                    /><br/>
-                    <input
+                    { this.renderInput('contactName')}<br/>
+                    { this.renderInput('contactPhone')}<br/>
+                    { this.renderInput('contactEmail')}<br/>
+                    { this.renderInput('contactCategory')}<br/>
 
-                    /><br/>
-                    <input
-
-                    /><br/>
-                    <input
-
-                    /><br/>
                     <button>Update contact</button>
                 </form>
             </React.Fragment>
